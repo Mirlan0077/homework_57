@@ -1,0 +1,25 @@
+from django.db import models
+from django.utils import timezone
+
+class Type(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Status(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Issue(models.Model):
+    summary = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    status = models.ForeignKey(Status, on_delete=models.PROTECT)
+    type = models.ForeignKey(Type, on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.summary
