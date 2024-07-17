@@ -1,0 +1,68 @@
+[
+    {
+        "model": "issues.type",
+        "pk": 1,
+        "fields": {
+            "name": "Task"
+        }
+    },
+    {
+        "model": "issues.type",
+        "pk": 2,
+        "fields": {
+            "name": "Bug"
+        }
+    },
+    {
+        "model": "issues.type",
+        "pk": 3,
+        "fields": {
+            "name": "Enhancement"
+        }
+    },
+    {
+        "model": "issues.status",
+        "pk": 1,
+        "fields": {
+            "name": "New"
+        }
+    },
+    {
+        "model": "issues.status",
+        "pk": 2,
+        "fields": {
+            "name": "In Progress"
+        }
+    },
+    {
+        "model": "issues.status",
+        "pk": 3,
+        "fields": {
+            "name": "Done"
+        }
+    },
+    {
+        "model": "issues.issue",
+        "pk": 1,
+        "fields": {
+            "summary": "Fix authentication bug",
+            "description": "Users unable to login after update",
+            "status": 2,
+            "type": 2,
+            "created_at": "2023-01-01T10:00:00Z",
+            "updated_at": "2023-01-02T15:30:00Z"
+        }
+    },
+    {
+        "model": "issues.issue",
+        "pk": 2,
+        "fields": {
+            "summary": "Implement search feature",
+            "description": "",
+            "status": 1,
+            "type": 3,
+            "created_at": "2023-01-02T14:00:00Z",
+            "updated_at": "2023-01-03T12:45:00Z"
+        }
+    }
+]
