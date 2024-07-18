@@ -1,34 +1,13 @@
+<!-- templates/issue_detail.html -->
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Issue Detail</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-4">
-        <h1>Issue Detail</h1>
-        <dl class="row">
-            <dt class="col-sm-3">Summary:</dt>
-            <dd class="col-sm-9">{{ object.summary }}</dd>
-
-            <dt class="col-sm-3">Description:</dt>
-            <dd class="col-sm-9">{{ object.description }}</dd>
-
-            <dt class="col-sm-3">Status:</dt>
-            <dd class="col-sm-9">{{ object.status }}</dd>
-
-            <dt class="col-sm-3">Type:</dt>
-            <dd class="col-sm-9">{{ object.type }}</dd>
-
-            <dt class="col-sm-3">Created At:</dt>
-            <dd class="col-sm-9">{{ object.created_at }}</dd>
-
-            <dt class="col-sm-3">Updated At:</dt>
-            <dd class="col-sm-9">{{ object.updated_at }}</dd>
-        </dl>
-        <a href="{% url 'issue-list' %}" class="btn btn-primary">Back to List</a>
-    </div>
-</body>
-</html>
+{% block content %}
+  <h1>Детали задачи</h1>
+  <p><strong>Краткое описание:</strong> {{ object.summary }}</p>
+  <p><strong>Полное описание:</strong> {{ object.description }}</p>
+  <p><strong>Статус:</strong> {{ object.status }}</p>
+  <p><strong>Тип:</strong> {{ object.type }}</p>
+  <a href="{% url 'issue-update' object.pk %}" class="btn btn-primary">Редактировать</a>
+  <a href="{% url 'issue-delete' object.pk %}" class="btn btn-danger">Удалить</a>
+  <a href="{% url 'issue-list' %}" class="btn btn-secondary">Назад к списку</a>
+{% endblock %}

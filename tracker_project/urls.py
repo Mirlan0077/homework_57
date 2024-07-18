@@ -15,7 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from issues.views import IssueListView, IssueDetailView, IssueCreateView, IssueUpdateView, IssueDeleteView
+
+from tracker_project.issues.views import IssueListView, IssueDetailView, IssueCreateView, IssueUpdateView, \
+    IssueDeleteView
 
 urlpatterns = [
     path('', IssueListView.as_view(), name='issue-list'),
@@ -23,5 +25,7 @@ urlpatterns = [
     path('issue/create/', IssueCreateView.as_view(), name='issue-create'),
     path('issue/<int:pk>/update/', IssueUpdateView.as_view(), name='issue-update'),
     path('issue/<int:pk>/delete/', IssueDeleteView.as_view(), name='issue-delete'),
+
 ]
+ф
 
