@@ -1,13 +1,13 @@
-<!-- templates/issue_detail.html -->
 {% extends 'base.html' %}
 
+{% block title %}Issue Detail{% endblock %}
+
 {% block content %}
-  <h1>Детали задачи</h1>
-  <p><strong>Краткое описание:</strong> {{ object.summary }}</p>
-  <p><strong>Полное описание:</strong> {{ object.description }}</p>
-  <p><strong>Статус:</strong> {{ object.status }}</p>
-  <p><strong>Тип:</strong> {{ object.type }}</p>
-  <a href="{% url 'issue-update' object.pk %}" class="btn btn-primary">Редактировать</a>
-  <a href="{% url 'issue-delete' object.pk %}" class="btn btn-danger">Удалить</a>
-  <a href="{% url 'issue-list' %}" class="btn btn-secondary">Назад к списку</a>
+    <h1>{{ object.summary }}</h1>
+    <p>{{ object.description }}</p>
+    <p>Status: {{ object.status.name }}</p>
+    <p>Type: {{ object.type.name }}</p>
+    <a class="btn btn-secondary" href="{% url 'issue-update' object.pk %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'issue-delete' object.pk %}">Delete</a>
+    <a class="btn btn-primary" href="{% url 'issue-list' %}">Back to list</a>
 {% endblock %}

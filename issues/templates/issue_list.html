@@ -1,14 +1,15 @@
-<!-- templates/issue_list.html -->
 {% extends 'base.html' %}
 
+{% block title %}Issue List{% endblock %}
+
 {% block content %}
-  <h1>Список задач</h1>
-  <ul>
-    {% for issue in object_list %}
-      <li><a href="{% url 'issue-detail' issue.pk %}">{{ issue.summary }}</a></li>
-    {% empty %}
-      <li>Нет задач</li>
-    {% endfor %}
-  </ul>
-  <a href="{% url 'issue-create' %}" class="btn btn-primary">Создать новую задачу</a>
+    <h1>Issue List</h1>
+    <ul class="list-group">
+        {% for issue in object_list %}
+            <li class="list-group-item">
+                <a href="{% url 'issue-detail' issue.pk %}">{{ issue.summary }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-primary mt-3" href="{% url 'issue-create' %}">Create new issue</a>
 {% endblock %}

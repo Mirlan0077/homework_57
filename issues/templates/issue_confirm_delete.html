@@ -1,12 +1,13 @@
-<!-- templates/issue_confirm_delete.html -->
 {% extends 'base.html' %}
 
+{% block title %}Delete Issue{% endblock %}
+
 {% block content %}
-  <h1>Подтверждение удаления задачи</h1>
-  <p><strong>Вы уверены, что хотите удалить задачу "{{ object.summary }}"?</strong></p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Да, удалить</button>
-    <a href="{% url 'issue-detail' object.pk %}" class="btn btn-secondary">Отмена</a>
-  </form>
+    <h1>Delete Issue</h1>
+    <p>Are you sure you want to delete "{{ object.summary }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <a class="btn btn-secondary" href="{% url 'issue-list' %}">Back to list</a>
 {% endblock %}
