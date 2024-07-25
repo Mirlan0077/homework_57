@@ -7,7 +7,7 @@ class IssueForm(forms.ModelForm):
         fields = ['summary', 'description', 'status', 'types']
         widgets = {
             'status': forms.Select(attrs={'class': 'form-control'}),
-            'types': forms.CheckboxSelectMultiple(attrs={'class': 'form-control'}),
+            'types': forms.SelectMultiple(attrs={'class': 'form-control'}),
             'summary': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
         }
