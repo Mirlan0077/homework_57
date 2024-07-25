@@ -7,9 +7,9 @@
     <ul class="list-group">
         {% for issue in object_list %}
             <li class="list-group-item">
-                <a href="{% url 'issue-detail' issue.pk %}">{{ issue.summary }}</a>
+                <a href="{% url 'issue_detail' issue.pk %}">{{ issue.summary }}</a>
             </li>
         {% endfor %}
     </ul>
-    <a class="btn btn-primary mt-3" href="{% url 'issue-create' %}">Create new issue</a>
+    <a class="btn btn-primary mt-3" href="{% url 'issue_create' %}">Create new issue</a>
 {% endblock %}

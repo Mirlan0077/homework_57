@@ -4,10 +4,19 @@
 
 {% block content %}
     <h1>{{ object.summary }}</h1>
-    <p>{{ object.description }}</p>
-    <p>Status: {{ object.status.name }}</p>
-    <p>Type: {{ object.type.name }}</p>
-    <a class="btn btn-secondary" href="{% url 'issue-update' object.pk %}">Edit</a>
-    <a class="btn btn-danger" href="{% url 'issue-delete' object.pk %}">Delete</a>
-    <a class="btn btn-primary" href="{% url 'issue-list' %}">Back to list</a>
+    <p><strong>Summary:</strong> {{ object.summary }}</p>
+    <p><strong>Description:</strong> {{ object.description|linebreaks }}</p>
+    <p><strong>Status:</strong> {{ object.status.name }}</p>
+    <p><strong>Types:</strong>
+        {% for type in object.types.all %}
+            {{ type.name }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            No types assigned.
+        {% endfor %}
+    </p>
+    <p><strong>Created At:</strong> {{ object.created_at|date:"Y-m-d H:i:s" }}</p>
+    <p><strong>Updated At:</strong> {{ object.updated_at|date:"Y-m-d H:i:s" }}</p>
+    <a class="btn btn-secondary" href="{% url 'issue_update' object.pk %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'issue_delete' object.pk %}">Delete</a>
+    <a class="btn btn-primary" href="{% url 'issue_list' %}">Back to list</a>
 {% endblock %}
